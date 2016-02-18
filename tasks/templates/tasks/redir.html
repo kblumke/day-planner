@@ -1,0 +1,26 @@
+{% extends 'tasks/base.html' %}
+
+{% block content %}
+	<h1>Sorry!</h1>
+	<p>{{day.day}} is already planned.</p>
+	<p>If you want to choose and plan other day - click 'Add day' button.</p>
+	<p>If you want to back to index page - click 'Back' button.</p>
+	<p>If you want to edit this day - clik 'Edit' button.</p>
+	<div class="right">
+		<a href="{% url 'new_day' %}">
+			<button type="submit" class="save btn btn-default">
+			<span class="glyphicon glyphicon-plus-sign"></span> Add day</button>
+		</a>
+	</div>
+	<div class="left">
+	    <a href="/">
+		    <button class="save btn btn-default">
+		    <span class="glyphicon glyphicon-new-window"></span> Back</button>
+	    </a>
+    </div>
+    <div class="center">
+	    <a class="btn btn-default" href="/tasks/{{day.id}}/edit">
+	    <span class="glyphicon glyphicon-edit"></span> Edit</a>
+    </div>
+{% endblock content %}
+

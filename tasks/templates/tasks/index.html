@@ -1,0 +1,23 @@
+{% extends 'tasks/base.html' %}
+
+
+{% block content %}
+
+	{% if day_list %}
+	    <h1>Planned days:</h1>
+	   	<ul>
+		    {% for day in day_list %}
+		    	<li><a href="{% url 'detail' day.id %}">{{ day.day }}</a></li>
+		    {% endfor %}
+	    </ul>
+	{% else %}
+	    <h4>No days are available.</h4>
+	{% endif %}
+	
+	<a href="{% url 'new_day' %}">
+		<button type="submit" class="save btn btn-default">
+		<span class="glyphicon glyphicon-plus-sign"></span> Add day</button>
+	</a>
+
+
+{% endblock content %}

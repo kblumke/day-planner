@@ -1,0 +1,32 @@
+{% extends 'tasks/base.html' %}
+
+
+{% block content %}
+
+    <h1>New day</h1>
+
+        <form action="/tasks/new/" method="POST" class="post-form">
+            {% csrf_token %}
+            <div id='day'>{{ day_form.as_p }}</div>
+                <ul id="task_list">
+                    {% for form in task_forms %}
+                        <li>{{ form }}</li>
+                    {% endfor %}
+                </ul>
+
+                <p><a href="#" id="add_task"><span class="glyphicon glyphicon-plus-sign">
+                </span> Add additional task</a></p>
+
+                <button id="safe_button" type="submit" class="save btn btn-default">
+                <span class="glyphicon glyphicon-floppy-saved"></span> Save</button>
+
+        </form>
+
+        <a id="back" href="/"><button class="save btn btn-default">
+        <span class="glyphicon glyphicon-new-window"></span> Back</button></a>
+
+{% endblock content %}
+
+
+
+

@@ -1,0 +1,54 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <img id="logo-main" class="img-responsive center-block"src="{% static "images/logo.jpg" %}" />
+        <title>Day planner</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'css/tasks.css' %}">
+
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+        <link rel="stylesheet" href="/resources/demos/style.css" />
+
+        <script>
+        $(function() {
+            $( "#id_day" ).datepicker({
+                dateFormat: "yy-mm-dd",
+                showOn: "button",
+                buttonImage: "{% static 'images/calendar.gif' %}",
+                buttonImageOnly: true,
+                buttonText: "Select date"
+            });
+            $("#add_task").click(function(){
+                var i = $('li').length
+                $("#task_list").append('<li><label for="id_'+i+'-task_text"></label><input id="id_'+i+'-task_text" maxlength="600" name="'+i+'-task_text" type="text"></li>')
+            })
+        });
+        </script>
+    </head>
+
+    <body>
+        <div class="page-header">
+            <h1><a href="/">Day planner</a></h1>
+        </div>
+        <div id = "background" class="content container">
+            <div class="row">
+                <div class="col-md-8">
+                {% block content %}
+                {% endblock %}
+                </div>
+            </div>
+        </div>
+        </br>
+    <div id="footer">
+        </br>
+        <h4>Author: Karolina Blumke</h4>
+        <p><a href="mailto:karolina.blumke@gmail.com">karolina.blumke@gmail.com</a></p>
+    </div>
+    </body>
+    </html>

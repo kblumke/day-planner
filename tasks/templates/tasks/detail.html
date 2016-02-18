@@ -1,0 +1,27 @@
+{% extends 'tasks/base.html' %}
+
+
+{% block content %}
+
+    <h1>Day Plan for </h1> {{ day.day}}
+    <h2>Day title: </h2> {{ day.title }}
+    <h3>Daily goal: </h3> {{ day.daily_goal }}
+    <h4 id="date">Created: {{ day.created_date }}</h4>
+    <h3>List of tasks: </h3>
+    <ul>
+        {% for task in day.task_set.all %}
+            {% if task.task_text != '' %}
+                <li>{{ task.task_text }}</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    
+    <a id="back"href="/">
+        <button class="save btn btn-default">
+        <span class="glyphicon glyphicon-new-window"></span> Back</button>
+    </a>
+
+    <a id="edit" class="btn btn-default" href="/tasks/{{day.id}}/edit">
+    <span class="glyphicon glyphicon-edit"></span> Edit</a>
+
+{% endblock content %}
