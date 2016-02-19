@@ -33,8 +33,11 @@ def add_day(request):
                     if not cf.cleaned_data['task_text']:
                         continue
                     new_task = cf.save(commit=False)
-                    new_task.day = new_day
-                    new_task.save()
+                    if new_task.id and not new_task.task_text:
+                        new_task.delete()
+                    else:
+                        new_task.day = new_day
+                        new_task.save()
                 return HttpResponseRedirect('/')
     else:
         dform = DayForm(instance=Day())
