@@ -7,7 +7,7 @@ I. Copy the source code
 
 		or
 
-	b. git clone https://akallabeth@bitbucket.org/akallabeth/planner.git
+	b. git clone https://akallabeth@bitbucket.org/akallabeth/day-planner.git
 
 II. Environment preparation
 
@@ -33,33 +33,45 @@ II. Environment preparation
 
 			$ source ENV/bin/activate 
 			
-			and go to the project folder
+			and go to the project folder: ../planner/
+
+			
+
+*** Instructions below require activate virtualenv!!! ***		
 
 III. Install requirements:
 
-	Go to project folder (.../planner/requirements.txt) and run:
+	Activate virtualenv, go to project folder (../planner/requirements.txt) and run:
 
 		$ pip install -r requirements.txt
 
-
 IV. Setting up database
-	Go to project folder (.../planner/planner/manage.py) and run:
 
-	Run:
+	Go to project folder (../planner/manage.py) and run:
 
 		$ python manage.py migrate
 
 V. Setting static files
 
-	Run:
+	Go to project folder (../planner/manage.py) and run:
+
 		$ python manage.py collectstatic
 
-VI. Run server
+VI. Run server/application:
 	
 	$ python manage.py runserver
 
+	and go to the link given in the terminal (usually http://127.0.0.1:8000/)
+
 VII. Run automatic tests
 
-	To run tests:	
+	To run tests go to project folder (../planner/manage.py) and run:
 
 		$ python manage.py test
+
+
+VIII. Issues
+
+If you have any issues with my application, please contact me:
+
+karolina.blumke@gmail.com
