@@ -1,13 +1,14 @@
 Author: Karolina Blumke 
 Application name: Planner
 
+
 I. Copy the source code
 
 	a. unzip code package: planner.zip
 
 		or
 
-	b. git clone https://akallabeth@bitbucket.org/akallabeth/day-planner.git
+	b. git clone https://akallabeth@bitbucket.org/akallabeth/day-planner.git planner
 
 II. Environment preparation
 
@@ -25,7 +26,7 @@ II. Environment preparation
 
 		b. create Virtualenv
 			
-			virtualenv -p python3.5 ENV
+			$ virtualenv -p python3.5 ENV
 
 			ENV - name for your virtualenv
 
@@ -35,7 +36,7 @@ II. Environment preparation
 			
 			and go to the project folder: ../planner/
 
-			
+
 
 *** Instructions below require activate virtualenv!!! ***		
 
