@@ -44,19 +44,22 @@ def add_day(request):
 def edit_day(request, day_id):
     day = get_object_or_404(Day, pk = day_id)
     day_form = DayForm(request.POST or None, instance=day)
-    tforms = [TaskForm(request.POST or None, prefix=str(i), instance=t) for i, t in enumerate(day.task_set.all())]
+    tforms = [TaskForm(request.POST or None, prefix=str(i), instance=t) for i, t in enumerate(day.task_set.all().order_by('id'))]
     num_tasks = len(tforms)
     for k in request.POST:
         if not k.endswith('-task_text') or int(k.replace('-task_text', ''))< num_tasks:
             continue
-        cf = TaskForm(request.POST, prefix=k.replace('-task_text', ''), instance=Task())  
+        cf = TaskForm(request.POST, prefix=k.replace('-task_text', ''), instance=Task())
         tforms.append(cf)  
     if day_form.is_valid():
         day_form.save()
         for t in tforms:
             new_task = t.save(commit=False)
-            new_task.day = day
-            new_task.save()
+            if new_task.id and not new_task.task_text:
+                new_task.delete()
+            else:    
+                new_task.day = day
+                new_task.save()
         return HttpResponseRedirect('/')
     return render(request, 'tasks/edit.html', {'day_form': day_form, 'task_forms':tforms})
 

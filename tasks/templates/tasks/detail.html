@@ -10,9 +10,7 @@
     <h3>List of tasks: </h3>
     <ul>
         {% for task in day.task_set.all %}
-            {% if task.task_text != '' %}
                 <li>{{ task.task_text }}</li>
-            {% endif %}
         {% endfor %}
     </ul>
     
