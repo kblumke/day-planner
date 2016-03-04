@@ -52,26 +52,21 @@ IV. Setting up database
 
 		$ python manage.py migrate
 
-V. Setting static files
 
-	Go to project folder (../planner/manage.py) and run:
-
-		$ python manage.py collectstatic
-
-VI. Run server/application:
+V. Run server/application:
 	
 	$ python manage.py runserver
 
 	and go to the link given in the terminal (usually http://127.0.0.1:8000/)
 
-VII. Run automatic tests
+VI. Run automatic tests
 
 	To run tests go to project folder (../planner/manage.py) and run:
 
 		$ python manage.py test
 
 
-VIII. Issues
+VII. Issues
 
 If you have any issues with my application, please contact me:
 
